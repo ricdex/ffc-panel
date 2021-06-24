@@ -1,0 +1,470 @@
+<!-- dist/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FFC-PANEL</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,900;1,900&display=swap" rel="stylesheet">    </head>
+
+  </head>
+  <body class=""  >
+   
+
+    <div class="h-screen bg-white flex overflow-hidden">
+      <!-- Narrow sidebar -->
+      <div class="hidden w-28 bg-indigo-700 overflow-y-auto md:block">
+        <div class="w-full py-6 flex flex-col items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="h-14 w-auto" src="img/icono-blanco-isolated.png" alt="Workflow">
+          </div>
+          <div class="flex-1 mt-10 w-full px-2 space-y-1">
+            <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
+            <a href="subasta.html" class="text-indigo-100 text-center hover:bg-indigo-800 hover:text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium">
+             
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 group-hover:text-white  h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+              </svg>
+
+              <span class="mt-2">Facturas en subasta</span>
+            </a>
+
+            <a href="ofertadas.html" class="bg-indigo-800 text-center text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium">
+              <!-- Heroicon name: outline/view-grid -->
+             
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 group-hover:text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              <span class="mt-2">Facturas Ofertadas</span>
+            </a>
+
+            <a href="#" class="text-indigo-100 text-center hover:bg-indigo-800 hover:text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium" aria-current="page">
+              <!-- Heroicon name: outline/photograph -->
+              
+              <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="mt-2">Facturas ganadas</span>
+            </a>
+
+            
+          </div>
+        </div>
+      </div>
+
+      <!--
+        Mobile menu
+
+        Off-canvas menu for mobile, show/hide based on off-canvas menu state.
+      -->
+      <div class="md:hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 z-40 flex">
+          <!--
+            Off-canvas menu overlay, show/hide based on off-canvas menu state.
+
+            Entering: "transition-opacity ease-linear duration-300"
+              From: "opacity-0"
+              To: "opacity-100"
+            Leaving: "transition-opacity ease-linear duration-300"
+              From: "opacity-100"
+              To: "opacity-0"
+          -->
+          <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
+
+          <!--
+            Off-canvas menu, show/hide based on off-canvas menu state.
+
+            Entering: "transition ease-in-out duration-300 transform"
+              From: "-translate-x-full"
+              To: "translate-x-0"
+            Leaving: "transition ease-in-out duration-300 transform"
+              From: "translate-x-0"
+              To: "-translate-x-full"
+          -->
+          <div class="relative max-w-xs w-full bg-indigo-700 pt-5 pb-4 flex-1 flex flex-col">
+            <!--
+              Close button, show/hide based on off-canvas menu state.
+
+              Entering: "ease-in-out duration-300"
+                From: "opacity-0"
+                To: "opacity-100"
+              Leaving: "ease-in-out duration-300"
+                From: "opacity-100"
+                To: "opacity-0"
+            -->
+            <div class="absolute top-1 right-0 -mr-14 p-1">
+              <button type="button" class="h-12 w-12 rounded-full flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-white">
+                <!-- Heroicon name: outline/x -->
+                <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span class="sr-only">Close sidebar</span>
+              </button>
+            </div>
+
+            <div class="flex-shrink-0 px-4 flex items-center">
+              <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white" alt="Workflow">
+            </div>
+            <div class="mt-5 flex-1 h-0 px-2 overflow-y-auto">
+              <nav class="h-full flex flex-col">
+                <div class="space-y-1">
+                  <!-- Current: "bg-indigo-800 text-white", Default: "text-indigo-100 hover:bg-indigo-800 hover:text-white" -->
+                  <a href="#" class="bg-indigo-800 text-center text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium">
+             
+                    <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 group-hover:text-white  h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                    </svg>
+      
+                    <span class="mt-2">Facturas en subasta</span>
+                  </a>
+      
+                  <a href="#" class="bg-indigo-800 text-center text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium">
+                    <!-- Heroicon name: outline/view-grid -->
+                   
+                    <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 group-hover:text-white h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                    <span class="mt-2">Facturas Ofertadas</span>
+                  </a>
+      
+                  <a href="#" class="text-indigo-100 text-center hover:bg-indigo-800 hover:text-white group w-full p-3 rounded-md flex flex-col items-center text-xs font-medium" aria-current="page">
+                    <!-- Heroicon name: outline/photograph -->
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="text-indigo-300 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="mt-2">Facturas ganadas</span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0 w-14" aria-hidden="true">
+            <!-- Dummy element to force sidebar to shrink to fit close icon -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Content area -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header class="w-full">
+          <div class="relative z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 shadow-sm flex">
+            <button type="button" class="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
+              <span class="sr-only">Open sidebar</span>
+              <!-- Heroicon name: outline/menu-alt-2 -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              </svg>
+            </button>
+            <div class="flex-1 flex justify-between px-4 sm:px-6">
+              <div class="flex-1 flex">
+                <form class="w-full flex md:ml-0 bg-white" action="#" method="GET">
+                  <label for="search_field" class="sr-only">Search all files</label>
+                  <div class="relative w-full  text-gray-400 focus-within:text-gray-600">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+                      <!-- Heroicon name: solid/search -->
+                      <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <input name="search_field" id="search_field" class="h-full w-full border-transparent py-2 pl-8 pr-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-transparent focus:placeholder-gray-400" placeholder="Search" type="search">
+                  </div>
+                </form>
+              </div>
+              <div class="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6"  x-data="{ isOpen: false}">
+                <!-- Profile dropdown -->
+                <div class="relative flex-shrink-0">
+                  <div>
+                    <div class="bg-white cursor-pointer rounded-full text-right flex flex-col  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" 
+                        @click="isOpen = !isOpen" 
+                        @keydown.escape="isOpen = false" 
+                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                      <span class="text-gray-500 font-semibold text-lg">Ricardo Avila</span>  
+                      <span class="text-gray-800 font-light text-xs">ricardo.avila@gmail.com</span>
+                    </div>
+                  </div>
+
+                  <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" 
+                      x-show="isOpen"
+                      @click.away="isOpen = false"
+                      role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                    
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Salir</a>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main content -->
+        <div class="flex-1 flex items-stretch overflow-hidden">
+          <main class="flex-1 overflow-y-auto p-5">
+            <!-- Primary column -->
+                
+                <div class="flex items-center pb-3" x-data="{ isOpen: false}">
+                  <h1 class="flex-1 text-gray-700 text-xl font-light">Facturas ofertadas</h1>
+                  <div class="relative">
+                    <button type="button"  @click="isOpen = !isOpen"  @keydown.escape="isOpen = false" class="w-full bg-white border border-gray-300 rounded-md shadow-sm px-4 py-2 inline-flex justify-center text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" id="sort-menu-button" aria-expanded="false" aria-haspopup="true">
+                      <!-- Heroicon name: solid/sort-ascending -->
+                      <svg class="mr-3 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 000-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM13 16a1 1 0 102 0v-5.586l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L13 10.414V16z" />
+                      </svg>
+                      Ordenar
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <!-- Dropdown menu, show/hide based on menu state. -->
+                    <div class="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" 
+                          x-show="isOpen"
+                          @click.away="isOpen = false"
+                          role="menu" aria-orientation="vertical" aria-labelledby="sort-menu-button" tabindex="-1">
+                      <div class="py-1" role="none">
+                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="sort-menu-item-0">Nombre</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="sort-menu-item-1">Reciente</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="sort-menu-item-2">Mas ofertada</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex flex-col overflow-x-auto divide-y  divide-gray-200 border-t pt-5  ">
+                  <div class=" overflow-x-auto w-full px-1">
+                    <div class="align-middle inline-block min-w-full ">
+                      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-200">
+                          <thead class="bg-gray-50">
+                            <tr>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Empresa
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Nro Factura
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Interes (%)
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Moneda
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Monto a percibir
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Costo financiero
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Fecha inicio oferta
+                              </th>
+                              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Dias restantes subasta
+                              </th>
+                              <th scope="col" class="relative px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                                <span class="sr-only">Eliminar</span>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap font-semibold text-sm text-black">
+                                Importaciones Pepsi
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                001-23902
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                18.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                USD
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                23,000.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                4,500.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                               01/05/21
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-5 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                  5
+                                </span>
+                              </td>
+                              
+                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap font-semibold text-sm text-black">
+                                Importaciones Pepsi
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                001-23902
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                18.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                USD
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                23,000.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                4,500.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                               01/05/21
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-5 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                  5
+                                </span>
+                              </td>
+                              
+                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap font-semibold text-sm text-black">
+                                Importaciones Pepsi
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                001-23902
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                18.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                USD
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                23,000.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                4,500.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                               01/05/21
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-5 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                  5
+                                </span>
+                              </td>
+                              
+                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap font-semibold text-sm text-black">
+                                Importaciones Pepsi
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                001-23902
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                18.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                USD
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                23,000.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                4,500.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                               01/05/21
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-5 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                  5
+                                </span>
+                              </td>
+                              
+                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="px-6 py-4 whitespace-nowrap font-semibold text-sm text-black">
+                                Importaciones Pepsi
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                001-23902
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                18.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                USD
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                23,000.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                                4,500.00
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap  text-sm text-gray-500">
+                               01/05/21
+                              </td>
+                              <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-5 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-500 text-white">
+                                  5
+                                </span>
+                              </td>
+                              
+                              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Eliminar</a>
+                              </td>
+                            </tr>
+                            
+
+                            <!-- More people... -->
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              
+            </section>
+          </main>
+
+          <!-- Secondary column (hidden on smaller screens) 
+          <aside class="hidden w-96 bg-white border-l border-gray-200 overflow-y-auto lg:block">
+           
+          </aside>-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Where webpack will output to -->
+    <script src="bundle.js"></script>
+  </body>
+</html>
